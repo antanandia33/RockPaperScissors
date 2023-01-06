@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function getComputerChoice() {
+      const choices = ["rock", "paper", "scissors"];
+      return choices[Math.floor(Math.random()*choices.length)];
+    }
+
+    function playRound(playerSelection, computerSelection) {
+      let player = playerSelection.toLowerCase();
+      let computer = computerSelection.toLowerCase();
+      if (player === "rock") {
+        if (computer === "paper") {
+          return "You Lose! Paper beats Rock";
+        } else if (computer === "scissors") {
+          return "You Win! Rock beats Scissors";
+        } else if (computer === "rock") {
+          return "Tie!";
+        }
+      } else if (player === "paper") {
+        if (computer === "rock") {
+          return "You Win! Paper beats Rock!";
+        } else if (computer === "scissors") {
+          return "You Lose! Scissors beats Paper";
+        } else if (computer === "paper") {
+          return "Tie!";
+        }
+      } else if (player === "scissors") {
+        if (computer === "rock") {
+          return "You Lose! Rock beats Scissors";
+        } else if (computer === "paper") {
+          return "You Win! Scissors beats Paper";
+        } else if (computer === "scissors") {
+          return "Tie!";
+        }
+      }
+    }
+
+    function game() {
+      let player = 0;
+      let computer = 0;
+      for (let i  = 0; i < 5; i++) {
+        let playerSelection = prompt("Enter 'rock', 'paper', or 'scissors'");
+        const computerSelection = getComputerChoice();
+        let roundResultString = playRound(playerSelection, computerSelection);
+        console.log(roundResultString);
+        const words = roundResultString.split(" ");
+        if(words[1] === "Win!") {
+          player += 1;
+        } else if (words[1] === "Lose!") {
+          computer += 1;
+        }
+      }
+      if (player > computer) {
+        console.log("You Win!");
+      } else if (computer > player) {
+        console.log("You Lose!");
+      } else if (computer === player) {
+        console.log("Tie Game!")
+      }
+    }
+
+  </script>
+</body>
+</html>
