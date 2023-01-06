@@ -4,69 +4,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src = "script.js" defer></script>
   <title>Document</title>
 </head>
 <body>
-  <script>
-    function getComputerChoice() {
-      const choices = ["rock", "paper", "scissors"];
-      return choices[Math.floor(Math.random()*choices.length)];
-    }
-
-    function playRound(playerSelection, computerSelection) {
-      let player = playerSelection.toLowerCase();
-      let computer = computerSelection.toLowerCase();
-      if (player === "rock") {
-        if (computer === "paper") {
-          return "You Lose! Paper beats Rock";
-        } else if (computer === "scissors") {
-          return "You Win! Rock beats Scissors";
-        } else if (computer === "rock") {
-          return "Tie!";
-        }
-      } else if (player === "paper") {
-        if (computer === "rock") {
-          return "You Win! Paper beats Rock!";
-        } else if (computer === "scissors") {
-          return "You Lose! Scissors beats Paper";
-        } else if (computer === "paper") {
-          return "Tie!";
-        }
-      } else if (player === "scissors") {
-        if (computer === "rock") {
-          return "You Lose! Rock beats Scissors";
-        } else if (computer === "paper") {
-          return "You Win! Scissors beats Paper";
-        } else if (computer === "scissors") {
-          return "Tie!";
-        }
-      }
-    }
-
-    function game() {
-      let player = 0;
-      let computer = 0;
-      for (let i  = 0; i < 5; i++) {
-        let playerSelection = prompt("Enter 'rock', 'paper', or 'scissors'");
-        const computerSelection = getComputerChoice();
-        let roundResultString = playRound(playerSelection, computerSelection);
-        console.log(roundResultString);
-        const words = roundResultString.split(" ");
-        if(words[1] === "Win!") {
-          player += 1;
-        } else if (words[1] === "Lose!") {
-          computer += 1;
-        }
-      }
-      if (player > computer) {
-        console.log("You Win!");
-      } else if (computer > player) {
-        console.log("You Lose!");
-      } else if (computer === player) {
-        console.log("Tie Game!")
-      }
-    }
-
-  </script>
+  <header>Rock Paper Scissors</header>
+  <main>
+    <div class="scoreboard">
+      <h2 class = "round info">Choose rock, paper, or scissors</h2>
+      <h3 class = "round message">First to five points wins the game!</h3>
+      <div class = "scoresContainer">
+        <div class = "scoreBox" id="playerScoreBox">
+          <div class= "sign">❔</div>
+          <p>Player: 0</p>
+        </div>
+        <div class = "scoreBox" id="computerScoreBox">
+          <div class= "sign">❔</div>
+          <p>Computer: 0</p>
+        </div>
+      </div>
+    </div>
+    <div class = "buttonContainer">
+      <button class = "choice" id = "rockBtn">Rock</button>
+      <button class = "choice" id = "paperBtn">Paper</button>
+      <button class = "choice" id = "scissorsBtn">Scissors</button>
+    </div>
+  </main>
 </body>
 </html>
