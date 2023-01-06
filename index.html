@@ -12,23 +12,23 @@
   <header>Rock Paper Scissors</header>
   <main>
     <div class="scoreboard">
-      <h2 class = "round info">Choose rock, paper, or scissors</h2>
-      <h3 class = "round message">First to five points wins the game!</h3>
+      <h2 class = "roundInfo">Choose rock, paper, or scissors</h2>
+      <h3 class = "roundMessage">First to five points wins the game!</h3>
       <div class = "scoresContainer">
         <div class = "scoreBox" id="playerScoreBox">
-          <div class= "sign">❔</div>
-          <p>Player: 0</p>
+          <div class= "sign" id = "playerSign">❔</div>
+          <p id = "playerScore">Player: 0</p>
         </div>
         <div class = "scoreBox" id="computerScoreBox">
-          <div class= "sign">❔</div>
-          <p>Computer: 0</p>
+          <div class= "sign" id = "compSign">❔</div>
+          <p id = "compScore">Computer: 0</p>
         </div>
       </div>
     </div>
     <div class = "buttonContainer">
-      <button class = "choice" id = "rockBtn">Rock</button>
-      <button class = "choice" id = "paperBtn">Paper</button>
-      <button class = "choice" id = "scissorsBtn">Scissors</button>
+      <button class = "choice hoverEffect" id = "rockBtn">👊 Rock</button>
+      <button class = "choice hoverEffect" id = "paperBtn">✋ Paper</button>
+      <button class = "choice hoverEffect" id = "scissorsBtn">✌️ Scissors</button>
     </div>
   </main>
 </body>

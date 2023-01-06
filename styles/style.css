@@ -7,7 +7,7 @@ body{
 header{
   background-color: rgb(93, 253, 203);
   border: 0px;
-  padding: 48px;
+  padding: 32px;
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -17,7 +17,7 @@ header{
 }
 
 main{
-  margin-top: 48px;
+  margin-top: 32px;
   text-align: center;
 }
 
@@ -31,6 +31,15 @@ main{
   justify-content: center;
   padding: 0px;
   gap: 48px;
+  flex-wrap: wrap;
+}
+
+.roundInfo{
+  font-size: 26px;
+}
+
+.roundMessage{
+  font-size: 22px;
 }
 
 .scoreBox{
@@ -52,5 +61,21 @@ p {
   display: flex;
   justify-content: center;
   gap: 32px;
+  margin-top: 32px;
+  margin-bottom: 64px;
+  flex-wrap: wrap;
+}
+
+.choice {
+  background-color: #8789C0;
+  border: none;
+  font-size: 32px;
+  border-radius: 50px;
+  padding: 24px;
+}
+
+.hoverEffect:hover {
+  opacity: 0.7;
+  cursor:pointer
 }
 
