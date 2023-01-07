@@ -66,7 +66,34 @@ function updateScoreBoxes(selection, compSelection, words) {
 }
 
 function updateScoreInfo(words) {
-  rInfo.textContent = "test123";
+  if (words[0] == 'Tie!') {
+    rInfo.textContent = words[0];
+    rMsg.textContent = '';
+  } else if (words[1] === "Win!") {
+    rInfo.textContent = `${words[0]} ${words[1]}`;
+    let msgArray = words.slice(2,words.length);
+    rMsg.textContent = msgArray.join(' ');
+  } else if (words[1] === "Lose!") {
+    rInfo.textContent = `${words[0]} ${words[1]}`;
+    let msgArray = words.slice(2,words.length);
+    rMsg.textContent = msgArray.join(' ');
+  }
+}
+
+function winner(outcome) {
+  modal.showModal();
+  const modalText = document.querySelector('.gameResult');
+  modalText.textContent = `You ${outcome} The Game!`;
+}
+
+function checkIfGameOver() {
+  if (player === 5) {
+    console.log("youwin")
+    winner('Win');
+  } else if (computer === 5) {
+    console.log("youlose")
+    winner('Lose');
+  }
 }
 
 function playRound(selection) {
@@ -77,6 +104,19 @@ function playRound(selection) {
   const words = roundResultString.split(" ");
   updateScoreBoxes(selection, computerSelection, words);
   updateScoreInfo(words);
+  checkIfGameOver()
+}
+
+function restartGame() {
+  player = 0;
+  computer = 0;
+  rInfo.textContent = 'Choose rock, paper, or scissors';
+  rMsg.textContent = 'First to five points wins the game!';
+  playerScore.textContent = 'Player: 0';
+  compScore.textContent = 'Computer: 0';
+  playerSign.textContent = '❔';
+  compSign.textContent = '❔';
+  modal.close();
 }
 
 let player = 0;
@@ -88,10 +128,13 @@ const playerSign = document.getElementById('playerSign');
 const compSign = document.getElementById('compSign');
 const playerScore = document.getElementById('playerScore');
 const compScore = document.getElementById('compScore');
-const rInfo = document.getElementsByClassName('roundInfo')
-const rMsg = document.getElementsByClassName('roundMessage')
+const rInfo = document.querySelector('.roundInfo');
+const rMsg = document.querySelector('.roundMessage');
+const modal = document.querySelector('.modal');
+const restartBtn = document.querySelector('.buttonRestart');
 
 
 rock.addEventListener('click', () => playRound('rock'));
 paper.addEventListener('click', () => playRound('paper'));
 scissors.addEventListener('click', () =>  playRound('scissors'));
+restartBtn.addEventListener('click', () => restartGame());
